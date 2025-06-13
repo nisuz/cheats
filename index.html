@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Fire Cheats</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    header {
+      background-color: #111;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff3333;
+    }
+    .container {
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+    input, select {
+      background: #222;
+      color: white;
+      border: 1px solid #444;
+    }
+    button {
+      background-color: #ff3333;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e60000;
+    }
+    .cheat-options {
+      margin-top: 20px;
+      background: #111;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px red;
+    }
+    label {
+      display: block;
+      margin: 12px 0 4px;
+      color: #ff5555;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #888;
+      font-size: 14px;
+    }
+    .link-btn, .mic-btn {
+      display: inline-block;
+      width: 48%;
+      margin-top: 10px;
+      padding: 12px;
+      background: #222;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 6px;
+      border: 1px solid red;
+    }
+    .mic-btn span {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+ 
+<header> Ios Strem Panel By Velocira xD <header>
+
+<div class="container"> 
+
+  <input type="text" id="username" placeholder="Enter Username">
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="login()">Login</button>
+
+  <div style="text-align:center;">
+    <a class="link-btn" href="https://guns.lol/susceyx" target="_blank">Get Key</a>
+     </div>
+
+  <div class="cheat-options" id="cheatOptions" style="display:none;">
+    <h3 style="text-align:center; color:#f33;">Cheat Options</h3>
+    
+    <label for="aimbot">Aimbot Mode:</label>
+    <select id="aimbot">
+      <option>Head</option>
+      <option>Body</option>
+      <option>Neck</option>
+    </select>
+
+    <label><input type="checkbox" id="wallhack"> Aimbot Neck</label>
+    <label><input type="checkbox" id="speedhack"> Sniper Scope </label>
+    <label><input type="checkbox" id="noRecoil"> Esp line </label>
+    <label><input type="checkbox" id="autoHeadshot"> Aimbot Rage</label>
+
+    <button onclick="activateCheats()">Activate Cheats</button>
+  </div>
+
+</div>
+
+<div class="footer">©️ Dev &lt;&gt; Suscey</div>
+
+<script>
+  function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    if (user && pass) {
+      document.getElementById('cheatOptions').style.display = 'block';
+      alert("Login successful!");
+    } else {
+      alert("Please enter username and password.");
+    }
+  }
+
+  function activateCheats() {
+    alert("⚠ Cheats activated.");
+  }
+
+ </script>
+
+</body>
+</html>
