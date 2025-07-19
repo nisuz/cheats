@@ -1,139 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Fire Cheats</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suscey Pirate Sensi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      margin: 0;
-      background-color: #000;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
+      font-family: 'Courier New', monospace;
+      background-color: #111827;
+      color: white;
+      overflow: hidden;
     }
-    header {
-      background-color: #111;
-      padding: 15px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      color: #ff3333;
+    .hidden {
+      display: none;
     }
-    .container {
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-    input, select, button {
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: none;
-      font-size: 16px;
+      height: 100%;
+      z-index: -1;
     }
-    input, select {
-      background: #222;
-      color: white;
-      border: 1px solid #444;
+    .glow {
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
     }
-    button {
-      background-color: #ff3333;
-      color: #fff;
+    .neon-btn {
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .neon-btn:hover {
+      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+    }
+    #activationMessage {
+      margin-top: 1rem;
       font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #e60000;
-    }
-    .cheat-options {
-      margin-top: 20px;
-      background: #111;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px red;
-    }
-    label {
-      display: block;
-      margin: 12px 0 4px;
-      color: #ff5555;
-    }
-    .footer {
+      color: #00ff88;
       text-align: center;
-      margin-top: 30px;
-      color: #888;
-      font-size: 14px;
+      text-shadow: 0 0 8px #00ff88;
+      animation: glowPulse 1.5s ease-in-out 3;
     }
-    .link-btn, .mic-btn {
-      display: inline-block;
-      width: 48%;
-      margin-top: 10px;
-      padding: 12px;
-      background: #222;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 6px;
-      border: 1px solid red;
-    }
-    .mic-btn span {
-      font-size: 22px;
+    @keyframes glowPulse {
+      0%,
+      100% {
+        text-shadow: 0 0 8px #00ff88;
+        opacity: 1;
+      }
+      50% {
+        text-shadow: 0 0 20px #00ff88;
+        opacity: 0.7;
+      }
     }
   </style>
 </head>
-<body>
- 
-<header> Ios Strem Panel By Velocira xD <header>
+<body class="flex items-center justify-center min-h-screen">
 
-<div class="container"> 
+  <canvas id="particles"></canvas>
 
-  <input type="text" id="username" placeholder="Enter Username">
-  <input type="password" id="password" placeholder="Enter Password">
-  <button onclick="login()">Login</button>
-
-  <div style="text-align:center;">
-    <a class="link-btn" href="https://guns.lol/susceyx" target="_blank">Get Key</a>
-     </div>
-
-  <div class="cheat-options" id="cheatOptions" style="display:none;">
-    <h3 style="text-align:center; color:#f33;">Cheat Options</h3>
-    
-    <label for="aimbot">Aimbot Mode:</label>
-    <select id="aimbot">
-      <option>Head</option>
-      <option>Body</option>
-      <option>Neck</option>
-    </select>
-
-    <label><input type="checkbox" id="wallhack"> Aimbot Neck</label>
-    <label><input type="checkbox" id="speedhack"> Sniper Scope </label>
-    <label><input type="checkbox" id="noRecoil"> Esp line </label>
-    <label><input type="checkbox" id="autoHeadshot"> Aimbot Rage</label>
-
-    <button onclick="activateCheats()">Activate Cheats</button>
+  <!-- Login Page -->
+  <div id="loginPage" class="w-full max-w-xs mx-auto text-center">
+    <h1 class="text-2xl mb-4 font-bold text-green-400 glow">Suscey Pirate Sensi</h1>
+    <input
+      id="username"
+      type="text"
+      placeholder="Username"
+      class="w-full mb-2 px-4 py-2 rounded bg-gray-800 border border-green-400"
+    />
+    <input
+      id="password"
+      type="password"
+      placeholder="Password"
+      class="w-full mb-4 px-4 py-2 rounded bg-gray-800 border border-green-400"
+    />
+    <button
+      onclick="login()"
+      class="w-full bg-green-500 hover:bg-green-600 px-4 py-2 rounded font-bold neon-btn"
+    >
+      Login
+    </button>
   </div>
 
-</div>
+  <!-- Dashboard Page -->
+  <div id="dashboard" class="hidden w-full max-w-lg mx-auto mt-10 px-4">
+    <h2 class="text-2xl mb-6 text-center font-bold text-green-400 glow">
+      Welcome to Suscey Pirate Sensi  
+    </h2>
 
-<div class="footer">©️ Dev &lt;&gt; Suscey</div>
+    <!-- Device Selection -->
+    <div class="mb-6">
+      <label class="block mb-2 text-sm font-semibold">Select Device</label>
+      <select
+        id="deviceType"
+        class="w-full bg-gray-800 border border-green-400 px-4 py-2 rounded"
+      >
+        <option>iOS</option>
+        <option>Android</option>
+      </select>
+    </div>
 
-<script>
-  function login() {
-    const user = document.getElementById('username').value;
-    const pass = document.getElementById('password').value;
-    if (user && pass) {
-      document.getElementById('cheatOptions').style.display = 'block';
-      alert("Login successful!");
-    } else {
-      alert("Please enter username and password.");
+    <!-- Aim Menu -->
+    <div
+      class="bg-gray-800 p-4 rounded shadow-md border border-green-500 mb-6"
+    >
+      <h3 class="text-xl mb-3 font-semibold text-green-300 glow">🎯 Aim Menu</h3>
+      <label class="block mb-2"
+        ><input type="checkbox" id="aimlock" class="mr-2" /> Aimlock V3</label
+      >
+      <label class="block mb-2"
+        ><input type="checkbox" id="aimhead" class="mr-2" /> Aimhead</label
+      >
+      <label class="block mb-2"
+        ><input type="checkbox" id="headforce" class="mr-2" /> Headforce</label
+      >
+      <label class="block mb-2"
+        ><input type="checkbox" id="headlock" class="mr-2" /> Headlock 99%</label
+      >
+      <label class="block mb-2"
+        ><input type="checkbox" id="autotrack" class="mr-2" /> Auto Track</label
+      >
+      <label class="block mb-2"
+        ><input type="checkbox" id="flickboost" class="mr-2" /> Flick Boost</label
+      >
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex gap-4 justify-center mb-4">
+      <button
+        onclick="saveSettings()"
+        class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded font-bold neon-btn"
+      >
+        💾 Save Settings
+      </button>
+      <button
+        onclick="activateBot()"
+        class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-bold neon-btn"
+      >
+        🚀 Activate
+      </button>
+    </div>
+
+    <div id="activationMessage" class="hidden">Sensi Activated!</div>
+
+    <!-- Footer -->
+    <p class="text-center text-sm mt-6 text-white">
+      Developed by <span class="text-green-400 font-bold">Suscey</span> 🏴‍☠️
+    </p>
+
+    <div class="text-center mt-4">
+      <a
+        href="https://www.instagram.com/_sushant_xd_/"
+        target="_blank"
+        class="inline-flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full shadow-md transition"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+          alt="Instagram"
+          class="w-5 h-5"
+        />
+        @_sushant_xd_
+      </a>
+    </div>
+
+    <div class="text-center mt-4">
+      <button
+        onclick="logout()"
+        class="bg-gray-700 hover:bg-gray-600 px-6 py-2 rounded font-bold neon-btn"
+      >
+        🔒 Logout
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const VALID_USER = "Suscey";
+    const VALID_PASS = "Baby";
+
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      if (user === VALID_USER && pass === VALID_PASS) {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+        loadSettings();
+      } else {
+        alert("Invalid username or password.");
+      }
     }
-  }
 
-  function activateCheats() {
-    alert("⚠ Cheats activated.");
-  }
+    function logout() {
+      document.getElementById("dashboard").classList.add("hidden");
+      document.getElementById("loginPage").classList.remove("hidden");
+      clearActivationMessage();
+      clearInputs();
+    }
 
- </script>
+    function clearInputs() {
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+    }
 
+    function saveSettings() {
+      const settings = {
+        deviceType: document.getElementById("deviceType").value,
+        aimlock: document.getElementById("aimlock").checked,
+        aimhead: document.getElementById("aimhead").checked,
+        headforce: document.getElementById("headforce").checked,
+        headlock: document.getElementById("headlock").checked,
+        autotrack: document.getElementById("autotrack").checked,
+        flickboost: document.getElementById("flickboost").checked,
+      };
+      localStorage.setItem("pirateSensiSettings", JSON.stringify(settings));
+      alert("Settings saved!");
+    }
+
+    function loadSettings() {
+      const settings = JSON.parse(localStorage.getItem("pirateSensiSettings"));
+      if (settings) {
+        document.getElementById("deviceType").value = settings.deviceType;
+        document.getElementById("aimlock").checked = settings.aimlock;
+        document.getElementById("aimhead").checked = settings.aimhead;
+        document.getElementById("headforce").checked = settings.headforce;
+        document.getElementById("headlock").checked = settings.headlock;
+        document.getElementById("autotrack").checked = settings.autotrack;
+        document.getElementById("flickboost").checked = settings.flickboost;
+      }
+    }
+
+    function activateBot() {
+      const msg = document.getElementById("activationMessage");
+      msg.classList.remove("hidden");
+      setTimeout(() => {
+        msg.classList.add("hidden");
+      }, 3500);
+    }
+
+    function clearActivationMessage() {
+      document.getElementById("activationMessage").classList.add("hidden");
+    }
+
+    // Floating Particles
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particlesArray = [];
+
+    for (let i = 0; i < 100; i++) {
+      particlesArray.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        directionX: (Math.random() - 0.5) * 1,
+        directionY: (Math.random() - 0.5) * 1,
+        size: 1,
+        color: "white",
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particlesArray) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+
+        p.x += p.directionX;
+        p.y += p.directionY;
+
+        if (p.x < 0 || p.x > canvas.width) p.directionX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.directionY *= -1;
+      }
+      requestAnimationFrame(drawParticles);
+    }
+
+    drawParticles();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
